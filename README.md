@@ -7,13 +7,12 @@ conceptually simple: independently classify all image patches as being face or n
 is one of the most noticeable successes of computer vision. For example, modern cameras and photo
 organization tools have prominent face detection capabilities.
 
-##Task 1: Face Classifier
+#### Task 1: Face Classifier ####
 
 Write your code to train a model to classify images to face vs. non-face:
 
 1. write your own code to extract this feature 2 from an image; given an image patch, the value of a
-feature =
-P (pixel values in white area(s)) − P pixel values in black area(s). The white area and
+feature = P (pixel values in white area(s)) − P pixel values in black area(s). The white area and
 black area are equal in size. You may want to extract the features at multiple scales (why?). Using
 an image pyramid 3 for that purpose, where the five features are extracted from each of the cells
 of the pyramid. For example, an 1-layer pyramid leads to a 5-dimensional feature, a 2-layer pyramid
@@ -31,3 +30,15 @@ training data.
 take that falsely detected image, and explicitly create a negative example out of that image, and add
 that negative to your training set. When you retrain your classifier, it should perform better with this
 extra knowledge, and not make as many false positives.
+
+#### Task 2: Face Detector ####
+
+The second task was to extend your face classifier to a face detector, which consists of the following tasks. In
+the end, your algorithm should generate similar results as Fig. 1 shows (maybe not as good).
+1. write your own code to sample patches at multiple scales, over different positions;
+2. Run your face classifier over all patches sampled from an given image, and classify whether they are
+faces or no-faces;
+3. write your own code for non-maximum suppression if multiple detections are heavily overlapped;
+they are actually fired by the same object. See Fig. 4. tip: for overlapping detections, keep the
+detection with the highest detection score.
+4. write your outputs as images with bounding boxes imposed onto the original images.
