@@ -7,7 +7,7 @@ conceptually simple: independently classify all image patches as being face or n
 is one of the most noticeable successes of computer vision. For example, modern cameras and photo
 organization tools have prominent face detection capabilities.
 
-####Task 1: Face Classifier
+##Task 1: Face Classifier
 
 Write your code to train a model to classify images to face vs. non-face:
 
